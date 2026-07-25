@@ -26,10 +26,12 @@ class ApiService {
       } else {
         throw Exception('Failed to load orders: ${response.statusCode}');
       }
+    } on DioException {
+      // Network error (offline, DNS failure, timeout, etc.) — fall back to local mock data
+      return _getMockOrders();
     } catch (e) {
-      // For demo purposes, if the API call fails, we might just throw or fallback to mock data.
-      // The prompt asks to handle error state if fetch fails.
-      throw Exception('Network error or invalid data: $e');
+      // Non-network errors (e.g. forced error from toggle) — bubble up to show error UI
+      throw Exception('$e');
     }
   }
 
