@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'theme/app_theme.dart';
-import 'screens/orders_list_screen.dart';
+import 'screens/splash_screen.dart';
 
 void main() {
   runApp(
@@ -20,7 +20,7 @@ class OrderTrackerApp extends StatelessWidget {
       title: 'Order Tracker',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-      home: const OrdersListScreen(),
+      home: const SplashScreen(),
     );
   }
 }
