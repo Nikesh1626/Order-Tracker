@@ -143,7 +143,7 @@ Turn on **Airplane Mode** or disable Wi-Fi/Mobile Data on your device. The app w
 
 ---
 
-## 📦 Project Highlights (For Recruiters)
+## 📦 Project Highlights
 
 - **Clean Architecture** — Separation of concerns across models, services, providers, and UI layers
 - **Production Patterns** — Includes error boundaries, connectivity listeners, graceful degradation, and loading states
