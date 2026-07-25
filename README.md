@@ -21,9 +21,9 @@
 ## 📱 Screenshots
 
 <p align="center">
-  <img src="assets/Screen 1.jpeg" width="300" alt="Orders List Screen"/>
+  <img src="assets/screen_1.jpeg" width="300" alt="Orders List Screen"/>
   &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="assets/Screen 2.jpeg" width="300" alt="Order Detail Screen"/>
+  <img src="assets/screen_2.jpeg" width="300" alt="Order Detail Screen"/>
 </p>
 
 <p align="center">
