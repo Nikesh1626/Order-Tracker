@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import '../providers/order_provider.dart';
 import '../widgets/order_list_tile.dart';
+import '../widgets/footer_credit.dart';
 import 'order_detail_screen.dart';
 
 class OrdersListScreen extends ConsumerWidget {
@@ -38,6 +39,7 @@ class OrdersListScreen extends ConsumerWidget {
           Expanded(
             child: _buildBody(context, ref, orderState),
           ),
+          const FooterCredit(),
         ],
       ),
     );
@@ -48,7 +50,7 @@ class OrdersListScreen extends ConsumerWidget {
       return const _LoadingView();
     }
 
-    if (state.error != null && state.orders.isEmpty) {
+    if (state.error != null) {
       return _ErrorView(
         errorMsg: state.error!,
         onRetry: () => ref.read(orderProvider.notifier).fetchOrders(),
