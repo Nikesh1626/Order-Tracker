@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:dio/dio.dart';
 import '../models/order.dart';
 
@@ -11,10 +12,16 @@ class ApiService {
       // Simulate slight network latency to show loading state even though github is fast
       await Future.delayed(const Duration(milliseconds: 800)); 
 
-      final response = await _dio.get(kApiUrl);
+      // Append a timestamp to the URL to bypass aggressive caching from GitHub raw content
+      final timestamp = DateTime.now().millisecondsSinceEpoch;
+      final response = await _dio.get('$kApiUrl?t=$timestamp');
       
       if (response.statusCode == 200) {
-        final List<dynamic> data = response.data;
+        dynamic decodedData = response.data;
+        if (decodedData is String) {
+          decodedData = jsonDecode(decodedData);
+        }
+        final List<dynamic> data = decodedData;
         return data.map((json) => Order.fromJson(json)).toList();
       } else {
         throw Exception('Failed to load orders: ${response.statusCode}');
