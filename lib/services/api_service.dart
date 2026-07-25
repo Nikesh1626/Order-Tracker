@@ -1,18 +1,15 @@
 import 'package:dio/dio.dart';
 import '../models/order.dart';
 
-const String kApiUrl = 'https://6a63bf97b30b52361e1a9d91.mockapi.io/v1/orders';
+const String kApiUrl = 'https://raw.githubusercontent.com/Nikesh1626/Order-Tracker/main/mock_api.json';
 
 class ApiService {
   final Dio _dio = Dio();
 
   Future<List<Order>> fetchOrders() async {
     try {
-      if (kApiUrl == 'PASTE_MOCK_API_URL_HERE' || kApiUrl.isEmpty) {
-        // Fallback to local mock data if URL is not configured
-        await Future.delayed(const Duration(seconds: 1)); // Simulate network latency
-        return _getMockOrders();
-      }
+      // Simulate slight network latency to show loading state even though github is fast
+      await Future.delayed(const Duration(milliseconds: 800)); 
 
       final response = await _dio.get(kApiUrl);
       
